@@ -1,6 +1,6 @@
 # Git-Scraper
 Given github username, returns users' public repos and respective descritions in CLI
-
+![Demo](demo.gif)
 ## Installation
 
 1. Clone this repository:
