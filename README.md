@@ -7,7 +7,7 @@
  \______  /__||__|           /_______  /\___  >__|  (____  /   __/ \___  >__|   
         \/                           \/     \/           \/|__|        \/    
 ```
-### Given github username, returns users' public repos and respective descritions in CLI
+### Given GitHub username, returns users' public repos and respective descriptions in CLI
 ![Demo](demo.gif)
 ## Installation
 
