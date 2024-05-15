@@ -1,7 +1,6 @@
 # Git-Scraper
 Given github username, returns users' public repos and respective descritions in CLI
 
-Sure, I'll provide the same information in Markdown format:
 
 
 ## Installation
