@@ -54,4 +54,15 @@ Example:
 ```
 https://git-scraper.vercel.app/sankeer28
 ```
-
+This returns 
+```JSON
+"repos": [
+        {
+            "description": "returns users' public repos and respective descriptions in CLI and JSON",
+            "language": "Python",
+            "last_updated": "2024-05-17",
+            "last_updated_readable": "0 days ago",
+            "name": "Git-Scraper",
+            "url": "https://github.com/sankeer28/Git-Scraper"
+        },
+```
