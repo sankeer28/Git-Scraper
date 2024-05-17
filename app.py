@@ -37,21 +37,21 @@ def get_public_repos(username):
             current_date = datetime.now()
             time_diff = current_date - last_updated_date
             if time_diff.days < 7:
-                last_updated_human_readable = f"{time_diff.days} days ago"
+                last_updated_readable = f"{time_diff.days} days ago"
             elif time_diff.days < 365:
-                last_updated_human_readable = f"{time_diff.days // 7} weeks ago"
+                last_updated_readable = f"{time_diff.days // 7} weeks ago"
             else:
-                last_updated_human_readable = f"{time_diff.days // 365} years ago"
+                last_updated__readable = f"{time_diff.days // 365} years ago"
         else:
             last_updated = "Unknown"
-            last_updated_human_readable = "Unknown"
+            last_updated_readable = "Unknown"
         repo_list.append({
             'name': repo_name,
             'url': repo_url,
             'description': description,
             'language': language,
             'last_updated': last_updated,
-            'last_updated_human_readable': last_updated_human_readable
+            'last_updated_-_readable': last_updated_-_readable
         })
 
     return repo_list
