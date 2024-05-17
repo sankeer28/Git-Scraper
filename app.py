@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
+from datetime import timedelta
+from dateutil.relativedelta import relativedelta
 from hyperlink import URL
 
 app = Flask(__name__)
@@ -20,11 +23,35 @@ def get_public_repos(username):
         if description:
             description = description.text.strip()
         else:
-            description = "No description provided"
+            description = " "
+        language = repo.find('span', {'itemprop': 'programmingLanguage'})
+        if language:
+            language = language.text.strip()
+        else:
+            language = "Unknown"
+        last_updated = repo.find('relative-time')
+        if last_updated:
+            last_updated = last_updated.text.strip()
+            last_updated = datetime.strptime(last_updated, "%b %d, %Y").strftime("%Y-%m-%d")
+            last_updated_date = datetime.strptime(last_updated, "%Y-%m-%d")
+            current_date = datetime.now()
+            time_diff = current_date - last_updated_date
+            if time_diff.days < 7:
+                last_updated_human_readable = f"{time_diff.days} days ago"
+            elif time_diff.days < 365:
+                last_updated_human_readable = f"{time_diff.days // 7} weeks ago"
+            else:
+                last_updated_human_readable = f"{time_diff.days // 365} years ago"
+        else:
+            last_updated = "Unknown"
+            last_updated_human_readable = "Unknown"
         repo_list.append({
             'name': repo_name,
             'url': repo_url,
-            'description': description
+            'description': description,
+            'language': language,
+            'last_updated': last_updated,
+            'last_updated_human_readable': last_updated_human_readable
         })
 
     return repo_list
@@ -32,7 +59,12 @@ def get_public_repos(username):
 @app.route('/<username>', methods=['GET'])
 def repos(username):
     repos = get_public_repos(username)
-    return jsonify(repos)
+    response = {
+        'made_by': 'Sankeer',
+        'my_source_code': 'https://github.com/sankeer28/Git-Scraper',
+        'repos': repos
+    }
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)
