@@ -2,3 +2,4 @@ beautifulsoup4
 hyperlink
 requests
 colorama
+Flask
