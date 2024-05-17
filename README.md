@@ -54,7 +54,7 @@ Example:
 ```
 https://git-scraper.vercel.app/sankeer28
 ```
-This returns 
+sample returned JSON: 
 ```JSON
 "repos": [
         {
