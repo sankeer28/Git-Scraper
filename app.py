@@ -51,7 +51,7 @@ def get_public_repos(username):
             'description': description,
             'language': language,
             'last_updated': last_updated,
-            'last_updated_-_readable': last_updated_readable
+            'last_updated_readable': last_updated_readable
         })
 
     return repo_list
