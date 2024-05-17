@@ -8,6 +8,7 @@
         \/                           \/     \/           \/|__|        \/    
 ```
 ### Given GitHub username, returns users' public repos and respective descriptions in CLI
+### Simple Flask application that retrieves public repositories of a GitHub user and presents them in JSON format or as a web page.
 ![Demo](demo.gif)
 ## Installation
 
@@ -25,7 +26,7 @@
 
 ## Usage
 
-1. Run
+1. For CLI tool use, or for JSON API tool use the [link](https://git-scraper.vercel.app/)
 
    ```bash
    python main.py
@@ -34,3 +35,23 @@
 2. Enter the GitHub username when prompted.
 
 3. The script will display the user's public repositories with clickable links.
+
+
+
+
+### JSON Endpoint
+
+To access repository data via JSON, make a GET request to the following endpoint:
+
+```
+https://git-scraper.vercel.app/<username>
+```
+
+Replace `<username>` with the GitHub username you want to query.
+
+Example:
+
+```
+https://git-scraper.vercel.app/sankeer28
+```
+
